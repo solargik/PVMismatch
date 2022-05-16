@@ -82,7 +82,7 @@ def crosstied_cellpos_pat(nrows_per_substrs, ncols, partial=False):
 
     ncols : integer
         Number of columns of cells.
-        
+
     partial : boolean
         False (default) means TCT (all cells are cross-tied).
         True means no cross-tiling.
@@ -230,7 +230,7 @@ class PVmodule(object):
                 if p.pvconst is not pvconst:
                     raise Exception('PVconstant must be the same for all cells')
         self.pvconst = pvconst  #: configuration constants
-        
+
         # set default value of Vbypass if None
         if Vbypass is None:
             self.Vbypass = VBYPASS  #: [V] trigger voltage of bypass diode
@@ -247,7 +247,8 @@ class PVmodule(object):
             )
         self.pvcells = pvcells  #: list of `PVcell` objects in this `PVmodule`
         self.numSubStr = len(self.cell_pos)  #: number of substrings
-        self.subStrCells = [len(_) for _ in self.cell_pos]  #: cells per substr
+        self.subStrCells = [sum(len(row) for row in series_substring)
+                            for series_substring in self.cell_pos]  #: cells per substr
         # initialize members so PyLint doesn't get upset
         self.Imod, self.Vmod, self.Pmod, self.Isubstr, self.Vsubstr = self.calcMod()
 
@@ -553,14 +554,14 @@ class PVmodule(object):
             Vsubstr.append(Vsub)
             Isc_substr.append(np.interp(np.float64(0), Vsub, Isub))
             Imax_substr.append(Isub.max())
-            
+
         Isubstr, Vsubstr = np.asarray(Isubstr), np.asarray(Vsubstr)
         Isc_substr = np.asarray(Isc_substr)
         Imax_substr = np.asarray(Imax_substr)
         Imod, Vmod = self.pvconst.calcSeries(
             Isubstr, Vsubstr, Isc_substr.mean(), Imax_substr.max()
         )
-        
+
         # if entire module has only one bypass diode
         if self.Vbypass_config == MODULE_BYPASS:
             bypassed = Vmod < self.Vbypass[0]
