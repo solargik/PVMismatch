@@ -3,18 +3,18 @@ PVMismatch
 
 An explicit IV & PV curve trace calculator for PV system circuits
 
-Model chain 
+Model chain
     Cell > Cell string > Module > String > System
-    
-Key Model inputs 
-    Cell technology characteristics 
-    
-    Effective Irradiance (suns) 
-    
+
+Key Model inputs
+    Cell technology characteristics
+
+    Effective Irradiance (suns)
+
     Temperature (cell temperature)
-    
+
     Bypass device configuration
-    
+
     Cell string layout
 
 
@@ -41,7 +41,7 @@ and Anaconda. You must install them prior to using PVMismatch.
 Usage
 -----
 
-Please see the `documenation <http://sunpower.github.io/PVMismatch/>`__ for
+Please see the `documentation <http://sunpower.github.io/PVMismatch/>`__ for
 tutorials and API. Bugs and feature requests can be reported on
 `GitHub <https://github.com/SunPower/PVMismatch/issues>`__. The change
 history is also on `GitHub <https://github.com/SunPower/releases/>`__.
@@ -53,15 +53,15 @@ history is also on `GitHub <https://github.com/SunPower/releases/>`__.
 Other Projects that use PVMismatch
 ----------------------------------
 System level mismatch loss calculator using PVMismatch tool (STC and Annual energy loss)
-https://github.com/SunPower/MismatchLossStudy 
+https://github.com/SunPower/MismatchLossStudy
 
 Citing PVMismatch
 ----------------------------------
-We appreciate your use of PVMismatch, and ask that you appropriately cite the software in exchange for its open-source publication. 
+We appreciate your use of PVMismatch, and ask that you appropriately cite the software in exchange for its open-source publication.
 
 Mark Mikofski, Bennet Meyers, Chetan Chaudhari (2018). “PVMismatch Project: https://github.com/SunPower/PVMismatch". SunPower Corporation, Richmond, CA.
 
-Please consider adding a # tag "pvmismatch" to a StackOverflow/Quora/LinkedIn/ResearchGate posts related to PVMismatch. 
+Please consider adding a # tag "pvmismatch" to a StackOverflow/Quora/LinkedIn/ResearchGate posts related to PVMismatch.
 
 
 Current Maintainer at SunPower
